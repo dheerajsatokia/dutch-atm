@@ -16,7 +16,9 @@
 
 
 ## Initializing the Database
-
+    # Add DB url in local env variable
+    SQLALCHEMY_DATABASE_URI = postgres://{user}:{password}@{hostname}:{port}/{database-name}
+    
     # Create DB tables and populate the roles and users tables
     flask db init
 

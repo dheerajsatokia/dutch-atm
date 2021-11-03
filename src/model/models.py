@@ -4,8 +4,12 @@ from flask_migrate import Migrate
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
+from src.config import Config
+
+configs = Config()
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://admin:1111@localhost:5432/mobiquity"
+app.config['SQLALCHEMY_DATABASE_URI'] = configs.SQLALCHEMY_DATABASE_URI
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
